@@ -2,3 +2,5 @@
 name = "euler"
 version = "0.1.0"
 authors = ["Nuk <i@xuzhao.net>"]
+[dependencies]
+primes = "*"
