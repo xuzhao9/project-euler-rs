@@ -1,3 +1,4 @@
+use std::collections::HashSet;
 extern crate primes;
 fn get_primes(p: &mut Vec<u32>, n: u32) {
     let mut i = 2;
@@ -46,18 +47,25 @@ pub fn solve() {
     re[0] = 1;
     re[1] = 0;
     let mut s = 0;
+    let mut set = HashSet::new();
+    set.insert(0);
     for &j in &primes {
-        s += j;
-        let mut k = s;
-        loop {
-            if k == j - 1 {
-                break;
-            }
-            re[k as usize] = (re[k as usize] + re[(k - j) as usize]) % module;
-            k -= 1;
+        let mut t_set = HashSet::new();
+        for &x in set.iter() {
+            re[(x + j)as usize] += 1;
+            t_set.insert(x + j);
+        }
+        for &x in t_set.iter() {
+            set.insert(x);
         }
     }
-    // println!("{}", primes.len());
+    println!("{:?}", set);
+    let mut res = 0;
     for r in (0..re.len()) {
+        if primes::is_prime(r as u64) {
+            res += re[r];
+            res =  res % module;
+        }
     }
+    println!("{}", res);
 }
