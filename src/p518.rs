@@ -5,9 +5,11 @@ fn prime_set( bool_array: &mut Vec<bool>, n: u64) -> Vec<u64> {
     for _ in 0..n {
         bool_array.push(true);
     }
+    bool_array[0] = false;
+    bool_array[1] = false;
     let mut index = 2;
     loop {
-        if index == n {
+        if index * index > n {
             break;
         } else {
             if bool_array[index as usize] {
