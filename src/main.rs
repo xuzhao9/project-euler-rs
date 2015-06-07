@@ -1,9 +1,8 @@
 // Project Euler
 // Author: Xu Zhao (i@xuzhao.net)
 
-mod fibo;
-mod p24;
+mod p249;
 
 fn main() {
-    p24::solve();
+    p249::solve();
 }
