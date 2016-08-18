@@ -31,3 +31,8 @@ pub fn solve() {
     }
     println!("sum={}", sum);
 }
+
+fn find_word(num: i32) -> i32 {
+    // setup a table...
+    
+}
