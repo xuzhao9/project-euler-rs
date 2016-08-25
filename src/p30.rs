@@ -23,6 +23,7 @@ pub fn solve() {
     let mut sum = 0;
     for n in 10..1000000 {
         if cal_sum(n) == n {
+            println!("{}", n);
             sum += n;
         }
     }
