@@ -1,8 +1,8 @@
 // Project Euler
 // Author: Xu Zhao (i@xuzhao.net)
 
-mod p41;
+mod p42;
 
 fn main() {
-    p41::solve();
+    p42::solve();
 }
