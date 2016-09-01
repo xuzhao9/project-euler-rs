@@ -19,7 +19,7 @@ fn is_triangle(n: i64) -> bool {
 }
 
 fn is_hexa(n: i64) -> bool {
-  println!("{}",n);
+  // println!("{}",n);
   let sqrt = ((1 + 8 * n) as f32).sqrt() as i64;
   if is_square(1 + 8 * n) && ((1 + sqrt)%4 == 0) {
     return true;
