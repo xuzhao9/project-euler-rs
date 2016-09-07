@@ -3,13 +3,19 @@
 
 //! p53
 
+use std::cmp;
+
 fn cal_comb(n: i64, r: i64) -> bool {
+  if r == 0 || r == n {
+    return false;
+  }
   let mut x = 1;
-  println!("{}, {}", n, r);
-  for p in (r+1)..n {
+  let a = cmp::min(r, n-r);
+  let b = cmp::max(r, n-r);
+  for p in (b+1)..(n+1) {
     x = x * p;
   }
-  for p in 1..(n-r) {
+  for p in 1..(a+1) {
     x = x / p;
   }
   if x > 1000000 {
@@ -21,12 +27,12 @@ fn cal_comb(n: i64, r: i64) -> bool {
 pub fn solve() {
   let mut cnt = 0;
   for n in 1..101 {
-    for r in 1..n {
+    for r in 0..n+1 {
       if cal_comb(n, r) {
         if n % 2 == 0 {
-          cnt += 2 * (n / 2 - r + 1);
+          cnt += n + 1 - r * 2;
         } else {
-          cnt += 2 * (n / 2 - r + 1) + 1;
+          cnt += n + 1 - r * 2;
         }
         break;
       }
