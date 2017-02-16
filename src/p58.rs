@@ -20,6 +20,7 @@ pub fn solve() {
       let xx = (num_primes as f64) / (v.len() as f64); 
       left = 4;
       step += 2;
+      // weird here, since at 26239 it is 5248 / 52481
       if xx < 0.1 {
         break;
       }
